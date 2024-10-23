@@ -164,9 +164,10 @@ plt.figure(figsize=(10, 6))
 
 dp_sweep = []
 
-Q_Sweep = np.linspace(0,0.05,100)
+Q_Sweep = np.linspace(0,0.05,100) # Adjust as nescessary in m3/s
+aigap_range = np.linspace(0.003,0.0055,17) # Adjust as nescessary in m 
 
-aigap_range = np.linspace(0.003,0.0055,17)
+# Uncomment below for airgap Sweep 
 '''
 for g in aigap_range:
     dp_res = []
@@ -175,6 +176,7 @@ for g in aigap_range:
     f = round(g * 1000,2)
     plt.plot(Q_Sweep,dp_res, label=f'{f}mm Airgap')
 '''
+# Uncomment below for Single Point 
 #'''
 g = 0.004
 
@@ -195,15 +197,7 @@ for i in Q_Sweep:
 f = round(g * 1000,2)
 dp1 = dp_res[0]
 plt.plot(Q_Sweep,dp_res, label=f'{f}mm Airgap')
-'''
-for i in Q_Sweep:
-    dp_res.append(Calculate_Loss(g,i,car_effects=True))
-f = round(g * 1000,2)
-plt.plot(Q_Sweep,dp_res, label=f'{f}mm Airgap Car effects')
-dp2 = dp_res[0]
 
-print(dp1/dp2)
-'''
 #'''
 '''
 |------------------------------------------------------------------|
@@ -237,7 +231,7 @@ plt.plot(Q_fan_Test, dP_fan_Test, label="Test Fan",color='Purple', linewidth=2, 
 
 '''
 |------------------------------------------------------------------|
-|~~~~~~~~~~~~~~~~~~~~~~~~~Fan Curve~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+|~~~~~~~~~~~~~~~~~~~~~~~~~~Plotting~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 |------------------------------------------------------------------|
 '''
 
